@@ -30,7 +30,7 @@ case `uname` in
 	exit -1
 esac
 
-GITREPO=${GITREPO:-"git://github.com/mozilla-b2g/b2g-manifest"}
+GITREPO=${GITREPO:-"git://github.com/xboxfanj/b2g-manifest"}
 BRANCH=${BRANCH:-master}
 
 while [ $# -ge 1 ]; do
@@ -93,6 +93,16 @@ case "$1" in
 "nexus-4-kk")
 	echo DEVICE=mako >> .tmp-config &&
 	repo_sync nexus-4-kk
+	;;
+	
+"gee")
+	echo DEVICE=gee >> .tmp-config &&
+	repo_sync gee
+	;;
+	
+"geeb")
+	echo DEVICE=geeb >> .tmp-config &&
+	repo_sync geeb
 	;;
 
 "nexus-5")
@@ -171,6 +181,8 @@ case "$1" in
 	echo - galaxy-nexus
 	echo - nexus-4
 	echo - nexus-4-kk
+	echo - gee
+	echo - geeb
 	echo - nexus-5
 	echo - nexus-s
 	echo - nexus-s-4g
